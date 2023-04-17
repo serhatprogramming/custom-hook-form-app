@@ -20,7 +20,7 @@ const App = () => {
         <input type={name.type} value={name.value} onChange={name.onChange} />
         birtdate:
         <input type={born.type} value={born.value} onChange={born.onChange} />
-        height:{" "}
+        height:
         <input
           type={height.type}
           value={height.value}
