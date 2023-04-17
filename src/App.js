@@ -1,35 +1,35 @@
 import { useState } from "react";
 
+const useField = (type) => {
+  const [value, setValue] = useState("");
+
+  const onChange = (e) => setValue(e.target.value);
+
+  return { type, value, onChange };
+};
+
 const App = () => {
-  const [name, setName] = useState("");
-  const [born, setBorn] = useState("");
-  const [height, setHeight] = useState("");
+  const name = useField("text");
+  const born = useField("date");
+  const height = useField("number");
 
   return (
     <div>
       <form>
         name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <input type={name.type} value={name.value} onChange={name.onChange} />
         birtdate:
-        <input
-          type="date"
-          value={born}
-          onChange={(e) => setBorn(e.target.value)}
-        />
+        <input type={born.type} value={born.value} onChange={born.onChange} />
         height:{" "}
         <input
-          type="number"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
+          type={height.type}
+          value={height.value}
+          onChange={height.onChange}
         />
       </form>
       <div>
-        {name} was born on {born} with height of
-        {height}
+        {name.value} was born on {born.value} with height of
+        {height.value}
       </div>
     </div>
   );
