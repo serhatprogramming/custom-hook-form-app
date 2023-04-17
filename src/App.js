@@ -17,15 +17,11 @@ const App = () => {
     <div>
       <form>
         name:
-        <input type={name.type} value={name.value} onChange={name.onChange} />
+        <input {...name} />
         birtdate:
-        <input type={born.type} value={born.value} onChange={born.onChange} />
+        <input {...born} />
         height:
-        <input
-          type={height.type}
-          value={height.value}
-          onChange={height.onChange}
-        />
+        <input {...height} />
       </form>
       <div>
         {name.value} was born on {born.value} with height of
